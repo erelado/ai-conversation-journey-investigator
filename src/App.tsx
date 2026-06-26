@@ -1,6 +1,7 @@
 import './App.css';
 import { Investigator } from './components/Investigator';
 import { CorpusRollup } from './components/CorpusRollup';
+import { AiChallenge } from './components/AiChallenge';
 
 const REPO_URL = 'https://github.com/erelado/ai-conversation-journey-investigator';
 
@@ -72,6 +73,7 @@ function App() {
           handoff means automation <em>failed</em>. Both rejected it: many handoffs are required by
           policy, requested by the customer, or the correct safe behaviour.
         </p>
+        <AiChallenge />
       </section>
 
       <section>
