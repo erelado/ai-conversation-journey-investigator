@@ -9,6 +9,7 @@
     "lint": "oxlint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "gen:corpus": "node scripts/generate-corpus.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

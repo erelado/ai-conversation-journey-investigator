@@ -11,6 +11,8 @@
 
 export type EventType =
   | 'call_started'
+  | 'customer_message'
+  | 'bot_message'
   | 'intent_detected'
   | 'clarification_requested'
   | 'route_selected'
