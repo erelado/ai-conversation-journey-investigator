@@ -41,6 +41,11 @@ describe('classify, the four scenarios', () => {
     expect(v.supporting_evidence).toHaveLength(0);
     expect(v.missing_information.length).toBeGreaterThan(0);
   });
+
+  it('call-1001: the retry is surfaced as honest counter-evidence', () => {
+    const v = classify(byId('call-1001'));
+    expect(v.contradicting_evidence.join(' ')).toMatch(/retried/);
+  });
 });
 
 describe('classifier discipline', () => {
@@ -76,5 +81,20 @@ describe('classifier discipline', () => {
     const s = extractSignals(byId('call-1004'));
     expect(s.lowConfidenceIntent).toBe(false);
     expect(s.causalSignalCount).toBe(0);
+  });
+
+  it('abstains when there is no handoff event, even with a clear failure signal', () => {
+    const noHandoff: Journey = {
+      conversation_id: 'unit-no-handoff',
+      title: 'no handoff',
+      description: 'a tool failed but the call never handed off',
+      events: [
+        { timestamp: '00:00:01', type: 'intent_detected', data: { intent: 'x', confidence: 0.9 } },
+        { timestamp: '00:00:02', type: 'tool_call_failed', data: { tool: 'api', error: 'timeout' } },
+      ],
+    };
+    const v = classify(noHandoff);
+    expect(v.classification).toBe('insufficient_data');
+    expect(v.missing_information.join(' ')).toMatch(/no handoff event/i);
   });
 });

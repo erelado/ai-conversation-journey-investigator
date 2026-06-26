@@ -70,5 +70,22 @@ over 500 synthetic calls, with real-vs-simulated labelled throughout.
 the timeline, are there unsupported causal claims, is there missing contradictory evidence, would
 `insufficient_data` be safer.
 
-**Impact.** See the commit that follows this report, one calibration fix was folded in based on
-the review. (Documented here once the fix lands so this reflects what actually happened.)
+**What it found (real findings, not rubber-stamping).**
+1. The rules asserted "the handoff followed..." but only the abstain branch ever checked a handoff
+   existed, a timeline with no handoff would still be classified with a cause.
+2. `causalSignalCount` was computed and documented as the abstain mechanism but never read; the
+   `call-1004` abstention happened by fall-through, not by an enforced invariant.
+3. `call-1001`'s retry (a genuine recovery attempt) was never surfaced as counter-evidence, unlike
+   the analogous clarification in `call-1002`, an honesty asymmetry.
+
+**What I folded in.** All three: two guards now run before any cause rule (no handoff → abstain;
+zero causal signals → abstain), so abstention is enforced, not accidental; and the retry is
+surfaced as contradicting evidence. New tests pin the no-handoff abstention and the retry note.
+
+**What I deliberately deferred (and why).** QA also suggested treating `intent: "unknown"` as a
+low-confidence signal. I did not: it would reclassify `call-1004` as an intent failure and erase
+the one scenario that proves the system abstains. The sparsity/handoff guards address `call-1004`
+more honestly. I also kept `evidence_strength: high` for a repeated same-tool failure (QA argued
+for `medium`); the repeated failure plus the customer repeat is enough corroboration, and the
+retry is now shown as counter-evidence. Folding what improves and explaining what you don't is the
+point of a QA pass.

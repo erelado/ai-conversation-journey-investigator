@@ -6,6 +6,11 @@
 // natural-language summary/recommendation are NOT produced here; they are frozen offline
 // (see analyses.json) and merged in for display.
 //
+// Two guards run before any cause rule, so the engine never asserts more than the events show:
+//   - if there is no handoff event, there is nothing to explain → abstain.
+//   - if the timeline carries zero causal signals, abstain instead of guessing.
+// This makes abstention an enforced invariant, not an accident of rule fall-through.
+//
 // Precedence matters: a policy-mandated handoff is justified even if a tool also blipped, so
 // we check justification before failure causes.
 
@@ -33,8 +38,25 @@ function build(
   };
 }
 
+function abstain(journey: Journey, s: Signals): StructuredVerdict {
+  const missing: string[] = [];
+  if (!s.handoffPresent) {
+    missing.push('No handoff event is present in the timeline, so there is nothing to explain.');
+  } else {
+    missing.push(
+      'No tool calls, policy checks, or customer turns were captured between the intent and the handoff.',
+    );
+  }
+  return build(journey, 'insufficient_data', 'undetermined', 'low', [], [], missing);
+}
+
 export function classify(journey: Journey): StructuredVerdict {
   const s: Signals = extractSignals(journey);
+
+  // Guards: abstain before inventing a cause.
+  if (!s.handoffPresent || s.causalSignalCount === 0) {
+    return abstain(journey, s);
+  }
 
   // 1. Justified, the handoff was required, not the result of a breakdown.
   if (s.policyRequiresHuman || s.humanApprovalRequired) {
@@ -63,6 +85,11 @@ export function classify(journey: Journey): StructuredVerdict {
       supporting.push('The customer repeated the request after the failure.');
     }
     supporting.push('The handoff followed the failed tool call(s).');
+    // Honest counter-evidence: a retry means the bot tried to recover, not gave up.
+    const contradicting: string[] = [];
+    if (s.toolFailureCount >= 2) {
+      contradicting.push('The bot retried the failing tool before escalating, rather than giving up immediately.');
+    }
     // Corroboration (repeated failure) raises confidence; a single blip is weaker.
     const strength: EvidenceStrength = s.toolFailureCount >= 2 ? 'high' : 'medium';
     return build(
@@ -71,7 +98,7 @@ export function classify(journey: Journey): StructuredVerdict {
       'business_system_failure',
       strength,
       supporting,
-      [],
+      contradicting,
       ['The timeline does not show whether a fallback or callback option was offered.'],
     );
   }
@@ -101,12 +128,6 @@ export function classify(journey: Journey): StructuredVerdict {
     );
   }
 
-  // 4. Insufficient data, abstain rather than invent a cause.
-  const missing = [
-    'No tool calls, policy checks, or customer turns were captured between the intent and the handoff.',
-  ];
-  if (!s.handoffPresent) {
-    missing.push('No handoff event is present in the timeline.');
-  }
-  return build(journey, 'insufficient_data', 'undetermined', 'low', [], [], missing);
+  // Any remaining case lacks a supported cause.
+  return abstain(journey, s);
 }
