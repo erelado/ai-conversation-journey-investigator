@@ -14,7 +14,7 @@ evidence-based explanation of the handoff, and refuses to guess when the data is
 ## Prototype scope
 - **Build:** deterministic signal extraction + handoff classification
   (`justified` / `potentially_avoidable` / `insufficient_data`) with supporting/contradicting
-  evidence, over four hand-authored scenarios.
+  evidence, over four hand-authored scenarios and a corpus of 500 synthetic calls.
 - **Roadmap (named, not built):** handoff *execution* quality, expected-handoff-rate per journey,
   the full cause taxonomy. See `docs/DISCOVERY_JOURNEY.md`.
 

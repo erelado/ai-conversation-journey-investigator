@@ -121,7 +121,34 @@ One question the prototype tests:
 The third and fourth scenarios (a justified handoff, and a dropped timeline) are the important
 ones: they prove the system isn't just calling every transfer a failure.
 
-## Next
+## 7. What I built
 
-Lock the input/output contract, then build the smallest real thing: deterministic signal
-extraction + classification over the four scenarios.
+The smallest real thing: a deterministic signal extractor + classifier (`src/lib`) over the four
+scenarios, backed by a corpus of 500 synthetic calls so the engine is exercised at volume rather
+than on toys. The page walks this same story and ends in the interactive investigator.
+
+Real vs. simulated, stated everywhere: extraction + classification + evidence run live and are
+unit-tested; only the summary prose is frozen offline; the telephony event stream is simulated.
+
+## 8. What adversarial QA changed
+
+I ran a read-only `qa-reviewer` in a separate context against the four verdicts. It found real
+issues: the rules claimed "the handoff followed..." without checking a handoff existed; the
+`causalSignalCount` abstain-invariant was computed but never enforced; and a retry (genuine
+recovery) wasn't surfaced as counter-evidence. I folded all three in, and deliberately deferred
+one suggestion (treating `intent: "unknown"` as a signal would have erased the abstention
+scenario). Details in `AI_PROCESS.md`.
+
+## 9. What remains unproven
+
+The prototype proves the mechanism is *possible*. It does not prove it is *valuable*. Before
+building further, validate with real users:
+- Do ops/automation owners act on a per-handoff explanation (vs. aggregate dashboards)?
+- Is the production event stream rich enough (logs are often partial)?
+- Is `evidence_strength` trusted more than a confidence score?
+- Does `insufficient_data` read as honesty, or as "the tool didn't work"?
+- What is the real cost/benefit of per-conversation investigation vs. sampling?
+
+That is the submission: I noticed something, formed a hypothesis, used AI to challenge it, changed
+my framing, cut the scope, built the smallest proof, tested where it could fail, and stated what
+remains unknown.
