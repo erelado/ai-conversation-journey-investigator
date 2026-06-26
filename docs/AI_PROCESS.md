@@ -6,7 +6,7 @@ decorative list. Prompts and raw answers are in `PROMPTS.md`.
 | Stage | Tool | Role | Visible impact |
 |---|---|---|---|
 | Hypothesis challenge | Gemini / ChatGPT / Claude | Existing-solutions scan + stakeholder critique | Confirmed the wedge is a *combination*; surfaced `insufficient_data` as the honest differentiator |
-| Product criticism | ChatGPT / Claude | Skeptical product reviewer | Produced the central reframe (handoff = classify, not blame) |
+| Product criticism | Gemini / Claude | Skeptical product reviewer | Produced the central reframe (handoff = classify, not blame) |
 | Implementation | Claude Code | Built the static prototype | Generated the deterministic engine, corpus generator, and page under direction |
 | QA | Separate context (subagent) | Adversarial reviewer | Reviewed the four verdicts; led to a calibration fix (see Iteration 5) |
 
@@ -41,7 +41,7 @@ code; `analyses.json` is frozen prose. `insufficient_data` is a first-class outp
 
 **Starting assumption.** Every human handoff represents a failed automated journey.
 
-**Tool and role.** ChatGPT and Claude, acting as skeptical product reviewers.
+**Tool and role.** Gemini and Claude, acting as skeptical product reviewers.
 
 **Important criticism.**
 - Many handoffs are required by policy, requested by the customer, or correct safe behaviour.

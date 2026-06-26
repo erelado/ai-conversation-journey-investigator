@@ -76,8 +76,9 @@ function App() {
           defensible feature.
         </p>
         <p>
-          Then I asked two of them, as skeptical product managers, to attack my assumption that a
-          handoff means automation <em>failed</em>. Both rejected it: many handoffs are required by
+          Then I asked Gemini and Claude, as skeptical product managers, to attack my assumption
+          that a handoff means automation <em>failed</em>. Both rejected it: many handoffs are
+          required by
           policy, requested by the customer, or the correct safe behaviour.
         </p>
         <AiChallenge />
@@ -86,7 +87,7 @@ function App() {
       <section>
         <p className="kicker">4 - The reframe</p>
         <h2>A handoff is not a failure</h2>
-        <AiUsed tools={[{ label: 'ChatGPT' }, { label: 'Claude' }]} />
+        <AiUsed tools={[{ label: 'Gemini' }, { label: 'Claude' }]} />
         <div className="reframe">
           <div className="from">Handoff = failure</div>
           <div className="arrow">↓ challenged by AI review</div>
