@@ -1,0 +1,25 @@
+{
+  "_note": "FROZEN OFFLINE. These natural-language fields are the part an LLM would phrase in production. They are captured here so the demo is keyless and reproducible. The structured verdict (classification, cause, evidence) is NOT here, it is computed live by src/lib/classify.ts.",
+  "analyses": [
+    {
+      "conversation_id": "call-1001",
+      "summary": "The handoff most likely followed repeated failures while retrieving appointment availability. The customer's request was understood; the appointment API timed out twice, the customer repeated the request, and the transfer came right after.",
+      "recommended_action": "Offer a callback flow when appointment availability cannot be retrieved after a retry, instead of escalating."
+    },
+    {
+      "conversation_id": "call-1002",
+      "summary": "The bot likely misread the billing question. Intent confidence was low and the customer said the system misunderstood, yet it routed to a payment flow. The bot did attempt a clarification first.",
+      "recommended_action": "Add a disambiguation step for low-confidence billing intents before selecting a route."
+    },
+    {
+      "conversation_id": "call-1003",
+      "summary": "Account closure required human approval by policy. The bot verified identity, checked policy, and routed to a human, the handoff was the correct outcome, not a breakdown.",
+      "recommended_action": null
+    },
+    {
+      "conversation_id": "call-1004",
+      "summary": "The timeline is too sparse to explain the handoff. Only a call start, an unresolved intent, and the transfer were captured, with no tool calls, policy checks, or customer turns in between.",
+      "recommended_action": null
+    }
+  ]
+}
