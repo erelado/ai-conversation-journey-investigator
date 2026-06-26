@@ -24,7 +24,6 @@
 .hero .lede {
   font-size: 1.15rem;
   color: var(--text-dim);
-  max-width: 60ch;
   margin: 0 0 28px;
 }
 .hero .scope {
