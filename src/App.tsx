@@ -2,7 +2,6 @@ import './App.css';
 import { Investigator } from './components/Investigator';
 import { CorpusRollup } from './components/CorpusRollup';
 
-// TODO(confirm): set to the real repo URL before deploy.
 const REPO_URL = 'https://github.com/erelado/ai-conversation-journey-investigator';
 
 function App() {
