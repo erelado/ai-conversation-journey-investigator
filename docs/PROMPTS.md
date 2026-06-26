@@ -18,10 +18,10 @@ generated directly in this working session.
 > vendors/features, say what they actually do, and where this idea overlaps vs. differs. Be
 > concrete and skeptical.
 
-Run across **Gemini**, **ChatGPT**, and **Claude**. They converged: the framing isn't shipped,
-but adjacent tooling is everywhere.
+Run across **Gemini (3.5 Flash)**, **ChatGPT (GPT 5.5)**, and **Claude (Opus 4.8)**. They
+converged: the framing isn't shipped, but adjacent tooling is everywhere.
 
-### Gemini (excerpt)
+### Gemini (3.5 Flash) (excerpt)
 > While dozens of vendors pass a "warm handoff summary" to an agent at the moment of transfer,
 > very few automatically perform a post-mortem classification on the systemic reason for the
 > handoff (Justified vs. Avoidable). It is split across LLM/Conversational-AI observability
@@ -33,7 +33,7 @@ but adjacent tooling is everywhere.
 > that neither standard LLM Ops tools nor standard CCaaS analytics can touch. In production,
 > expect up to ~30% of complex voice cases to return Insufficient Data.
 
-### ChatGPT (excerpt)
+### ChatGPT (GPT 5.5) (excerpt)
 > The market already contains most of the underlying components. The closest products are
 > Amazon Connect Customer and Microsoft Copilot Studio: Amazon has the closest technical
 > evidence layer, Microsoft the closest escalation classification model.
@@ -51,7 +51,7 @@ but adjacent tooling is everywhere.
 > root cause, and judges whether the handoff was justified, potentially avoidable, or unsupported
 > by sufficient data.
 
-### Claude (excerpt)
+### Claude (Opus 4.8) (excerpt)
 > Skeptical read: nothing on the market does exactly your framing (per-conversation,
 > evidence-linked, event-timeline reconstruction with a justified / avoidable / insufficient-data
 > verdict). But several categories do adjacent things, and a buyer will ask "isn't this just X?"
@@ -78,8 +78,8 @@ the causal judgment in deterministic code; let an LLM only phrase prose.
 > handoff NOT a failure? Give concrete categories with examples, and tell me how that should
 > change the product. Answer in copyable markdown.
 
-Run across **Gemini (3.5 Flash)** and **Claude**. Both rejected the assumption and pushed
-further than my own first reframe.
+Run across **Gemini (3.5 Flash)** and **Claude (Opus 4.8)**. Both rejected the assumption and
+pushed further than my own first reframe.
 
 ### Gemini (3.5 Flash) (excerpt)
 > A handoff is an outcome, not a diagnosis. In many cases, transferring the customer is the
@@ -97,7 +97,7 @@ further than my own first reframe.
 > a well-executed handoff. The goal is not to eliminate human handoffs. The goal is to make every
 > handoff understandable, appropriate, and actionable.
 
-### Claude (excerpt)
+### Claude (Opus 4.8) (excerpt)
 > "Handoff = failure" bakes the conclusion into the question and turns the tool into a blame
 > detector. The honest version is two questions: was escalating the right call, and was it done
 > well?

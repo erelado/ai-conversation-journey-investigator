@@ -23,13 +23,13 @@ export const aiChallenge: AiPrompt[] = [
 What existing products or features already do this or something close? Name specific vendors/features, say what they actually do, and where this idea overlaps vs. differs. Be concrete and skeptical.`,
     exchanges: [
       {
-        model: 'Gemini',
+        model: 'Gemini (3.5 Flash)',
         response: `While dozens of vendors pass a "warm handoff summary" to an agent at the moment of transfer, very few automatically perform a post-mortem classification on the systemic reason for the handoff (Justified vs. Avoidable). It is split across three categories: LLM/Conversational-AI observability (LangSmith, Arize, Phoenix) which track the technical timeline but are aimed at engineers; Enterprise CAIPs (Parloa, Cognigy, Dialogflow CX, Fini) which analyze conversational state but only for their own bots; and CCaaS QA / Interaction Analytics (NICE Enlighten, Genesys, Verint) which own the "avoidable transfer" reporting but historically via transcripts, not the live event timeline.
 
 Your unique value proposition lies in telecom-aware LLM observability... root-cause analysis that neither standard LLM Ops tools nor standard CCaaS analytics can touch. In production, expect up to ~30% of complex voice cases to return Insufficient Data.`,
       },
       {
-        model: 'ChatGPT',
+        model: 'ChatGPT (GPT 5.5)',
         response: `The market already contains most of the underlying components (transcripts, intent/journey analytics, handoff metrics, tool-call traces, automated evaluation, cross-interaction root cause). The closest products are Amazon Connect Customer and Microsoft Copilot Studio: Amazon has the closest technical evidence layer, Microsoft the closest escalation classification model.
 
 I did not find a documented, out-of-the-box feature that consistently combines all of: starts automatically after every handoff; reconstructs the complete event timeline for that one conversation; separates the immediate trigger from the underlying cause; cites specific evidence (retries, failed tools, repeats, confidence drops, policy rules); classifies as justified / potentially avoidable / insufficient data; and works across multiple systems. That is the credible product gap.
@@ -37,7 +37,7 @@ I did not find a documented, out-of-the-box feature that consistently combines a
 Avoid: "No existing product explains why bot handoffs happen." Use: existing platforms report handoff rates, escalation topics, paths, or agent traces; this feature combines those signals into a single evidence-based investigation per handoff, distinguishes the trigger from the root cause, and judges whether the handoff was justified, potentially avoidable, or unsupported by sufficient data.`,
       },
       {
-        model: 'Claude',
+        model: 'Claude (Opus 4.8)',
         response: `Skeptical read: nothing on the market does exactly your framing (per-conversation, evidence-linked, event-timeline reconstruction with a justified / avoidable / insufficient-data verdict). But several categories do adjacent things, and a buyer will ask "isn't this just X?"
 
 Conversation Intelligence / Auto-QA (Observe.AI, CallMiner, Cresta, Genesys) score the human agent after the fact, off the transcript, not the bot's decision off the event timeline. Bot platforms (Exotel, Decagon, Sierra) log "why it escalated" at trigger time, single-vendor only.
@@ -58,7 +58,7 @@ The verdict taxonomy and the event-timeline substrate are your only real differe
 Change the classification model to top-level outcomes (justified / potentially_avoidable / correct_recovery_after_failure / insufficient_data) plus a separate cause_category. Separate root cause from handoff quality: a journey can contain an automation failure and still end with a well-executed handoff. The goal is not to eliminate human handoffs. The goal is to make every handoff understandable, appropriate, and actionable.`,
       },
       {
-        model: 'Claude',
+        model: 'Claude (Opus 4.8)',
         response: `"Handoff = failure" bakes the conclusion into the question and turns the tool into a blame detector. The honest version is two questions: was escalating the right call, and was it done well?
 
 Where a handoff is NOT a failure: the customer asked for a human; policy/regulation requires one; capability boundary by design; safe abstention under uncertainty; risk/safety/distress; planned hybrid (qualify-then-transfer). Worth investigating instead: comprehension failures, premature surrender, friction-driven abandonment, coverage gaps, and the sneaky one, a correct handoff executed badly (no context passed, customer re-authenticates, agent starts cold).

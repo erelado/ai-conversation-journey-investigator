@@ -87,7 +87,13 @@ function App() {
       <section>
         <p className="kicker">3 - AI-assisted challenge</p>
         <h2>Does it exist? Is the framing right?</h2>
-        <AiUsed tools={[{ label: 'Gemini' }, { label: 'ChatGPT' }, { label: 'Claude' }]} />
+        <AiUsed
+          tools={[
+            { label: 'Gemini (3.5 Flash)' },
+            { label: 'ChatGPT (GPT 5.5)' },
+            { label: 'Claude (Opus 4.8)' },
+          ]}
+        />
         <p>
           I scanned the market across Gemini, ChatGPT, and Claude. The space is crowded with{' '}
           <strong>adjacent</strong> tools (LLM-observability, bot platforms, CCaaS QA), but the
@@ -108,7 +114,7 @@ function App() {
       <section>
         <p className="kicker">4 - The reframe</p>
         <h2>A handoff is not a failure</h2>
-        <AiUsed tools={[{ label: 'Gemini' }, { label: 'Claude' }]} />
+        <AiUsed tools={[{ label: 'Gemini (3.5 Flash)' }, { label: 'Claude (Opus 4.8)' }]} />
         <div className="reframe">
           <div className="from">Handoff = failure</div>
           <div className="arrow">↓ challenged by AI review</div>
