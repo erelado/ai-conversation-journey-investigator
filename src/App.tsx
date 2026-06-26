@@ -20,7 +20,10 @@ function App() {
           explains <em>why</em>. This turns one journey's event timeline into a cautious,
           evidence-based explanation, and refuses to guess when the data is thin.
         </p>
-        <span className="scope">90-minute discovery &amp; prototype exercise</span>
+        <div className="hero-meta">
+          <span className="scope">90-minute discovery &amp; prototype exercise</span>
+          <span className="scope">June 2026</span>
+        </div>
         <div className="actions">
           <a className="btn primary" href="#prototype">
             Explore the prototype
@@ -308,8 +311,8 @@ Analytics / alerts / review           `}
 
       <footer>
         <p>
-          Prototype built as a recruitment take-home exercise. Data is synthetic; no real calls, no live LLM
-          call, no telephony integration.
+          Prototype built as a recruitment take-home exercise, June 2026. Data is synthetic: no
+          real calls, no live LLM call, no telephony integration.
         </p>
         <p>
           <a href={REPO_URL} target="_blank" rel="noreferrer">
