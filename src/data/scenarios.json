@@ -1,0 +1,50 @@
+[
+  {
+    "conversation_id": "call-1001",
+    "title": "Reschedule appointment",
+    "description": "Customer asks to reschedule; the appointment API keeps timing out.",
+    "events": [
+      { "timestamp": "10:00:01", "type": "intent_detected", "data": { "intent": "reschedule_appointment", "confidence": 0.94 } },
+      { "timestamp": "10:00:04", "type": "tool_call", "data": { "tool": "appointment_api" } },
+      { "timestamp": "10:00:09", "type": "tool_call_failed", "data": { "tool": "appointment_api", "error": "timeout" } },
+      { "timestamp": "10:00:12", "type": "tool_call", "data": { "tool": "appointment_api" } },
+      { "timestamp": "10:00:17", "type": "tool_call_failed", "data": { "tool": "appointment_api", "error": "timeout" } },
+      { "timestamp": "10:00:21", "type": "customer_repeated_request" },
+      { "timestamp": "10:00:25", "type": "human_handoff" }
+    ]
+  },
+  {
+    "conversation_id": "call-1002",
+    "title": "Unusual billing charge",
+    "description": "Customer asks about a strange charge; the bot misreads the intent.",
+    "events": [
+      { "timestamp": "11:15:02", "type": "intent_detected", "data": { "intent": "billing_inquiry", "confidence": 0.41 } },
+      { "timestamp": "11:15:06", "type": "clarification_requested" },
+      { "timestamp": "11:15:14", "type": "route_selected", "data": { "route": "make_a_payment" } },
+      { "timestamp": "11:15:20", "type": "customer_reported_misunderstanding" },
+      { "timestamp": "11:15:27", "type": "human_handoff" }
+    ]
+  },
+  {
+    "conversation_id": "call-1003",
+    "title": "Close account",
+    "description": "Customer requests account closure; policy requires a human to approve.",
+    "events": [
+      { "timestamp": "09:30:03", "type": "intent_detected", "data": { "intent": "close_account", "confidence": 0.92 } },
+      { "timestamp": "09:30:08", "type": "identity_verified" },
+      { "timestamp": "09:30:13", "type": "policy_check", "data": { "policy": "account_closure", "result": "requires_human" } },
+      { "timestamp": "09:30:16", "type": "human_approval_required" },
+      { "timestamp": "09:30:19", "type": "human_handoff" }
+    ]
+  },
+  {
+    "conversation_id": "call-1004",
+    "title": "Dropped timeline",
+    "description": "A handoff happened, but almost no events were captured.",
+    "events": [
+      { "timestamp": "14:42:00", "type": "call_started" },
+      { "timestamp": "14:42:05", "type": "intent_detected", "data": { "intent": "unknown", "confidence": 0.55 } },
+      { "timestamp": "14:42:31", "type": "human_handoff" }
+    ]
+  }
+]
