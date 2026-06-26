@@ -562,9 +562,111 @@ section p strong {
   margin-top: 6px;
 }
 
+/* AI-used attribution line */
+.ai-used {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin: -2px 0 16px;
+}
+.ai-used-key {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* scope lists */
+.built-now,
+.roadmap {
+  margin: 6px 0 18px;
+  padding-left: 22px;
+  color: var(--text-dim);
+}
+.built-now li,
+.roadmap li {
+  margin-bottom: 6px;
+}
+.built-now li::marker {
+  color: var(--justified);
+  font-weight: 700;
+}
+.roadmap li::marker {
+  color: var(--insufficient);
+}
+
+/* design-note collapsible */
+.design-note {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  margin-top: 18px;
+}
+.design-note > summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+.design-note > summary:hover {
+  color: var(--accent);
+}
+.design-note-body {
+  padding: 0 18px 8px;
+}
+.design-note-body ul {
+  padding-left: 18px;
+  color: var(--text-dim);
+}
+.design-note-body li {
+  margin-bottom: 8px;
+}
+.design-note-body strong {
+  color: var(--text);
+}
+
+/* limitations checklist */
+.checklist {
+  list-style: none;
+  margin: 8px 0 20px;
+  padding: 0;
+}
+.checklist li {
+  margin-bottom: 8px;
+}
+.checklist label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-dim);
+}
+.checklist input {
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--justified);
+  cursor: pointer;
+}
+.checklist label.done span {
+  color: var(--justified);
+  text-decoration: line-through;
+}
+.more-time-head {
+  color: var(--text) !important;
+  font-weight: 600;
+}
+.more-time {
+  padding-left: 18px;
+  color: var(--text-dim);
+}
+.more-time li {
+  margin-bottom: 8px;
+}
+
 footer {
   padding: 32px 0 0;
   color: var(--text-dim);
   font-size: 0.85rem;
   text-align: center;
+}
+footer p {
+  margin: 0 0 8px;
 }
