@@ -67,7 +67,7 @@ operator-facing per-handoff verdict. No novelty claimed beyond the combination a
 This also told me *how* to build it: keep the causal judgment in deterministic code, and let an
 LLM phrase only the prose. That sidesteps the unreliable-narrator failure mode.
 
-## 4. Is the framing right?, the reframe
+## 4. Is the framing right? The reframe
 
 I asked two models, as skeptical product managers, to attack my assumption that *a handoff means
 automation failed*. Both rejected it and pushed further than my own first reframe.
@@ -77,7 +77,7 @@ one; the action is out of scope; human judgment is the point; the bot safely esc
 uncertainty; identity couldn't be verified; the journey is a planned qualify-then-transfer; a
 business system failed and the handoff was the correct *recovery*.
 
-The deeper insight (this changed the model): a handoff has **two independent axes**, 
+The deeper insight (this changed the model): a handoff has **two independent axes**:
 1. Was escalation the right *decision*? (justified / potentially_avoidable / caller-driven)
 2. Was the handoff well *executed*? (clean context transfer vs. cold transfer + re-auth)
 
@@ -95,8 +95,8 @@ handoff is often the cheapest CSAT fix, and is invisible if you only ask "did th
 
 ## 5. Scope decision
 
-Building the full two-axis model, both axes, the full cause taxonomy, execution-quality scoring
-, inside the time box would be scope-greed, and it would dilute the demo. I cut to the core
+Building the full two-axis model (both axes, the full cause taxonomy, execution-quality scoring)
+inside the time box would be scope-greed, and it would dilute the demo. I cut to the core
 hypothesis:
 
 | Build now (prototype) | Roadmap (named, not built) |

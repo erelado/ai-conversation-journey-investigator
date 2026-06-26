@@ -83,7 +83,7 @@ function App() {
           <div className="to">Handoff = an event to classify, not blame</div>
         </div>
         <p style={{ marginTop: '16px' }}>
-          The deeper model has two axes, was escalation the right <em>decision</em>, and was it
+          The deeper model has two axes: was escalation the right <em>decision</em>, and was it
           well <em>executed</em>? A clean designed escalation and a broken NLU loop must never look
           the same.
         </p>

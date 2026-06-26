@@ -20,7 +20,7 @@ could attack something concrete.
 
 ## Iteration 2: Does this already exist?
 
-**Tool and role.** Gemini, ChatGPT, Claude, existing-solutions scan.
+**Tool and role.** Gemini, ChatGPT, and Claude, running an existing-solutions scan.
 
 **Important criticism.**
 - The space is crowded with *adjacent* tools (LLM observability, enterprise bot platforms, CCaaS
@@ -57,7 +57,7 @@ code; `analyses.json` is frozen prose. `insufficient_data` is a first-class outp
 
 ## Iteration 4: Build (Claude Code)
 
-**Role.** Implementation under direction, I set the contract, scenarios, and scope; Claude Code
+**Role.** Implementation under direction. I set the contract, scenarios, and scope; Claude Code
 generated the engine, the seeded 500-call corpus generator, the tests, and the page. My role was
 review and direction, not typing every line.
 
