@@ -306,6 +306,11 @@ Analytics / alerts / review           `}
             An adversarial QA pass (a separate read-only reviewer) that found three real issues in
             the classifier, which I folded in.
           </li>
+          <li>
+            A <a href="#/corpus">corpus browser</a> to filter and inspect all 500 generated calls.
+            This was a one-line ask near the end ("a way to view the generated data"); Claude Code
+            built the whole subpage on its own.
+          </li>
         </ul>
         <p>
           None of this was in the first build. It is the on-the-fly improvement that working with
