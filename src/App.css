@@ -721,3 +721,128 @@ footer {
 footer p {
   margin: 0 0 8px;
 }
+
+/* corpus explorer subpage */
+.explorer {
+  padding-top: 40px;
+}
+.explorer .lede {
+  font-size: 1rem;
+}
+.explorer-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+}
+.explorer-controls select,
+.explorer-controls input {
+  font: inherit;
+  font-size: 0.9rem;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.explorer-controls input {
+  flex: 1;
+  min-width: 200px;
+}
+.explorer-controls select:focus-visible,
+.explorer-controls input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.explorer-count {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 6px 0 12px;
+}
+.explorer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.explorer-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.explorer-rowhead {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr) auto auto;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+.explorer-rowhead:hover {
+  background: var(--surface-2);
+}
+.explorer-title {
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.explorer-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 4px 14px 16px;
+}
+@media (max-width: 760px) {
+  .explorer-detail {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .explorer-rowhead {
+    grid-template-columns: 1fr auto;
+  }
+  .explorer-rowhead .mono {
+    grid-column: 1 / -1;
+  }
+}
+.raw-json {
+  margin-top: 12px;
+}
+.raw-json summary {
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.raw-json pre {
+  max-height: 280px;
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 0.76rem;
+  margin-top: 8px;
+}
+.explorer-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+.explorer-pager .btn[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

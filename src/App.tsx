@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import { Investigator } from './components/Investigator';
 import { CorpusRollup } from './components/CorpusRollup';
+import { CorpusExplorer } from './components/CorpusExplorer';
 import { AiChallenge } from './components/AiChallenge';
 import { AiUsed } from './components/AiUsed';
 import { DesignNote } from './components/DesignNote';
@@ -9,7 +11,23 @@ import { LimitationsChecklist } from './components/LimitationsChecklist';
 const REPO_URL = 'https://github.com/erelado/ai-conversation-journey-investigator';
 const CAVEMAN = 'https://github.com/JuliusBrussee/caveman';
 
+function currentRoute(): 'home' | 'corpus' {
+  return window.location.hash.replace(/^#\/?/, '') === 'corpus' ? 'corpus' : 'home';
+}
+
 function App() {
+  const [route, setRoute] = useState<'home' | 'corpus'>(currentRoute());
+  useEffect(() => {
+    const onHash = () => {
+      setRoute(currentRoute());
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
+
+  if (route === 'corpus') return <CorpusExplorer />;
+
   return (
     <div className="page">
       <header className="hero">
@@ -175,6 +193,11 @@ function App() {
         <h2>Run over 500 synthetic calls</h2>
         <AiUsed tools={[{ label: 'Claude Code' }, { label: 'product-critic skill' }]} />
         <CorpusRollup />
+        <p style={{ marginTop: '18px' }}>
+          <a className="btn" href="#/corpus">
+            Browse all 500 calls
+          </a>
+        </p>
       </section>
 
       <section id="prototype">
