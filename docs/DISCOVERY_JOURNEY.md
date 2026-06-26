@@ -93,7 +93,35 @@ handoff is often the cheapest CSAT fix, and is invisible if you only ask "did th
   "Handoff = classify it: was it the right decision, and was it executed well?"
 ```
 
+## 5. Scope decision
+
+Building the full two-axis model, both axes, the full cause taxonomy, execution-quality scoring
+, inside the time box would be scope-greed, and it would dilute the demo. I cut to the core
+hypothesis:
+
+| Build now (prototype) | Roadmap (named, not built) |
+|---|---|
+| The *decision* axis: `justified` / `potentially_avoidable` / `insufficient_data` | The *execution-quality* axis (routing, context transfer, re-auth, repetition) |
+| `cause_category` + supporting / contradicting / missing evidence | Expected-handoff-rate per journey |
+| Four hand-authored scenarios | The full cause taxonomy |
+
+This is deliberate scope management, not missing work.
+
+**Explicitly excluded from the prototype:** real FreeSWITCH/Asterisk integration, audio
+streaming, speech-to-text, a full voice agent, live CRM, aggregate analytics, automatic IVR
+modification, continuous production monitoring.
+
+## 6. Prototype hypothesis
+
+One question the prototype tests:
+
+> Can a structured journey timeline be converted into a useful, cautious, and evidence-based
+> explanation of a handoff, including the discipline to say "not enough data"?
+
+The third and fourth scenarios (a justified handoff, and a dropped timeline) are the important
+ones: they prove the system isn't just calling every transfer a failure.
+
 ## Next
 
-The reframe made the opportunity *bigger*, two axes, a full cause taxonomy, execution-quality
-scoring. That's far more than fits a 90-minute prototype. The next move is to cut scope hard.
+Lock the input/output contract, then build the smallest real thing: deterministic signal
+extraction + classification over the four scenarios.
