@@ -1,7 +1,7 @@
 import { aiChallenge } from '../data/aiChallenge';
 
-const PROMPTS_DOC =
-  'https://github.com/erelado/ai-conversation-journey-investigator/blob/main/docs/PROMPTS.md';
+const RESPONSES_DIR =
+  'https://github.com/erelado/ai-conversation-journey-investigator/tree/main/src/data/responses';
 
 function modelKey(model: string): string {
   const s = model.toLowerCase();
@@ -57,9 +57,9 @@ export function AiChallenge() {
         </details>
       ))}
       <p className="ai-note">
-        Excerpts of the real responses. Full answers in{' '}
-        <a href={PROMPTS_DOC} target="_blank" rel="noreferrer">
-          docs/PROMPTS.md
+        Full verbatim responses, collapsed. Raw source files in{' '}
+        <a href={RESPONSES_DIR} target="_blank" rel="noreferrer">
+          src/data/responses/
         </a>
         .
       </p>
