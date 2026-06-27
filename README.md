@@ -2,6 +2,15 @@
 
 From a handoff *event* to an explainable customer *journey*.
 
+## ▶ Live walkthrough
+**https://erelado.github.io/ai-conversation-journey-investigator/**
+
+Start there. The site tells the whole story end to end: the interview observation, the
+AI-assisted challenge (with the real prompts and model answers), the reframe, the deliberate
+scope cut, a live roll-up over 500 synthetic calls, the interactive investigator, a corpus
+browser, the production architecture, and the open limitations. This README is just the short
+entry point.
+
 A small, AI-driven feature prototype for a cloud-communication platform (VoIP / call centers,
 FreeSWITCH / Asterisk). Built as a 90-minute discovery-and-prototype exercise: the value is the
 product thinking and the use of AI tools to get there, the interactive demo is evidence.
