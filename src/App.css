@@ -613,6 +613,38 @@ section p strong {
   margin-top: 6px;
 }
 
+/* cross-examination (model vs model) */
+.followup {
+  margin: 6px 16px 14px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  border-radius: 8px;
+}
+.followup .prompt-text {
+  margin: 8px 0;
+}
+.followup .response {
+  margin: 0;
+}
+.followup-note {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0 0 4px;
+}
+.followup-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 5px;
+  padding: 2px 7px;
+  margin-right: 8px;
+}
+
 /* AI-used attribution line */
 .ai-used {
   font-size: 0.82rem;

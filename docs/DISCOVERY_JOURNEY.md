@@ -69,8 +69,10 @@ LLM phrase only the prose. That sidesteps the unreliable-narrator failure mode.
 
 ## 4. Is the framing right? The reframe
 
-I asked Gemini and Claude, as skeptical product managers, to attack my assumption that *a handoff
-means automation failed*. Both rejected it and pushed further than my own first reframe.
+I asked Claude, as a skeptical product manager, to attack my assumption that *a handoff means
+automation failed*, then fed its answer back to ChatGPT to challenge it. Both pushed further than
+my own first reframe, and the cross-examination surfaced a second axis (execution quality) that one
+model alone would have missed.
 
 A handoff is often **not** a failure: the customer asked for a human; policy/regulation requires
 one; the action is out of scope; human judgment is the point; the bot safely escalated under

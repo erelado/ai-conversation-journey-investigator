@@ -6,7 +6,7 @@ decorative list. Prompts and raw answers are in `PROMPTS.md`.
 | Stage | Tool | Role | Visible impact |
 |---|---|---|---|
 | Hypothesis challenge | Gemini / ChatGPT / Claude | Existing-solutions scan + stakeholder critique | Confirmed the wedge is a *combination*; surfaced `insufficient_data` as the honest differentiator |
-| Product criticism | Gemini / Claude | Skeptical product reviewer | Produced the central reframe (handoff = classify, not blame) |
+| Product criticism | Claude, then ChatGPT (cross-examined) | Skeptical product reviewer + rebuttal | Produced the central reframe (handoff = classify, not blame) and the execution-quality axis |
 | Implementation | Claude Code | Built the static prototype | Generated the deterministic engine, corpus generator, and page under direction |
 | QA | Separate context (subagent) | Adversarial reviewer | Reviewed the four verdicts; led to a calibration fix (see Iteration 5) |
 
@@ -41,12 +41,17 @@ code; `analyses.json` is frozen prose. `insufficient_data` is a first-class outp
 
 **Starting assumption.** Every human handoff represents a failed automated journey.
 
-**Tool and role.** Gemini and Claude, acting as skeptical product reviewers.
+**Tool and role.** Claude answered as a skeptical product reviewer; I then fed its answer back to
+ChatGPT and asked it to challenge another model, so the reframe was cross-examined rather than
+taken on one model's word.
 
 **Important criticism.**
-- Many handoffs are required by policy, requested by the customer, or correct safe behaviour.
-- A handoff has two axes: was escalation the right *decision*, and was it well *executed*?
-- Separate root cause from handoff quality.
+- (Claude) Many handoffs are required by policy, requested by the customer, or correct safe
+  behaviour; reframe around handoff *quality*, not avoidance; a handoff is an investigation trigger.
+- (ChatGPT, challenging back) The taxonomy mixes dimensions; "designed escalation" is not
+  automatically success, so separate *was it appropriate* from *was it executed well*; a 90-minute
+  prototype should be an investigation assistant, not an automated evaluator.
+- Together: separate root cause from handoff quality (the second, execution axis).
 
 **My evaluation.** The criticism is valid and materially changes the product definition.
 

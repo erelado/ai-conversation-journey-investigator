@@ -103,9 +103,9 @@ function App() {
           defensible feature.
         </p>
         <p>
-          Then I asked Gemini and Claude, as skeptical product managers, to attack my assumption
-          that a handoff means automation <em>failed</em>. Both rejected it: many handoffs are
-          required by
+          Then I asked Claude, as a skeptical product manager, to attack my assumption that a
+          handoff means automation <em>failed</em>, and fed its answer back to ChatGPT to challenge
+          it. Both pushed past the framing: many handoffs are required by
           policy, requested by the customer, or the correct safe behaviour.
         </p>
         <AiChallenge />
@@ -114,7 +114,7 @@ function App() {
       <section>
         <p className="kicker">4 - The reframe</p>
         <h2>A handoff is not a failure</h2>
-        <AiUsed tools={[{ label: 'Gemini (3.5 Flash)' }, { label: 'Claude (Opus 4.8)' }]} />
+        <AiUsed tools={[{ label: 'Claude (Opus 4.8)' }, { label: 'ChatGPT (GPT 5.5)' }]} />
         <div className="reframe">
           <div className="from">Handoff = failure</div>
           <div className="arrow">↓ challenged by AI review</div>
@@ -123,7 +123,8 @@ function App() {
         <p style={{ marginTop: '16px' }}>
           The deeper model has two axes: was escalation the right <em>decision</em>, and was it
           well <em>executed</em>? A clean designed escalation and a broken NLU loop must never look
-          the same.
+          the same. That second axis surfaced when ChatGPT challenged Claude's answer, exactly the
+          kind of insight one model alone would have missed.
         </p>
       </section>
 

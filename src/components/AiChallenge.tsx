@@ -26,6 +26,7 @@ export function AiChallenge() {
             {p.exchanges.map((e) => (
               <ModelTag key={e.model} model={e.model} />
             ))}
+            {p.followUp && <ModelTag model={p.followUp.exchange.model} />}
           </p>
           <pre className="prompt-text">{p.prompt}</pre>
           {p.exchanges.map((e) => (
@@ -36,6 +37,23 @@ export function AiChallenge() {
               <pre className="response-text">{e.response}</pre>
             </details>
           ))}
+
+          {p.followUp && (
+            <div className="followup">
+              <p className="followup-note">
+                <span className="followup-badge">model vs. model</span>
+                {p.followUp.note}
+              </p>
+              <pre className="prompt-text">{p.followUp.prompt}</pre>
+              <details className="response">
+                <summary>
+                  <ModelTag model={p.followUp.exchange.model} />{' '}
+                  <span className="resp-word">challenges back</span>
+                </summary>
+                <pre className="response-text">{p.followUp.exchange.response}</pre>
+              </details>
+            </div>
+          )}
         </details>
       ))}
       <p className="ai-note">
